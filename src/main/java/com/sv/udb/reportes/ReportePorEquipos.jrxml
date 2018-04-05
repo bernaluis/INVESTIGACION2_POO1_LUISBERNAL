@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEquipos" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d0e3e62f-2978-40bb-b1fa-29a41ff962e7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Edad" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select jugadores.nomb_juga,jugadores.edad_juga,jugadores.peso_juga from jugadores where jugadores.edad_juga>=$P{Edad}]]>
+	</queryString>
+	<field name="nomb_juga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="edad_juga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="peso_juga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="595" height="99" backcolor="#9999FF" uuid="ed6faba6-c0ad-4a48-ac69-ce0606855c50"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="434" y="59" width="100" height="20" uuid="cb382793-eaa1-4d91-a4f7-686c247f925f"/>
+				<textElement>
+					<font fontName="Cambria"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="64" y="13" width="399" height="35" uuid="af2e8868-0431-47bd-9776-ded49250c928"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="22"/>
+				</textElement>
+				<text><![CDATA[Reporte de jugadores por edad]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="6" width="100" height="20" uuid="3bf828a5-57ee-4c51-9082-5d0e1dcbc39d"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="6" width="100" height="20" uuid="0fcd456b-60a6-45e1-9df1-3f3256283a04"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="6" width="100" height="20" uuid="fa23c593-1008-49e7-ac10-2d43bc41c274"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="120" y="2" width="100" height="20" uuid="3919f176-5e2e-47a3-8a5e-06c2e16f72d7"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomb_juga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="2" width="100" height="20" uuid="bf90a40a-d24f-4284-8f80-5fbfced1de81"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edad_juga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="2" width="100" height="20" uuid="4f939217-7cd1-48d4-8f7c-73a58ab8038b"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peso_juga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="10e1e208-73ee-4be0-a225-651be6a314e2"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
